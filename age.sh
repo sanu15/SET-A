@@ -14,6 +14,8 @@ if [ "$age" -lt 13 ]; then
   echo "You are classified as a Child."
 elif [ "$age" -ge 13 ] && [ "$age" -le 19 ]; then
   echo "You are classified as a Teenager."
-else
+elif [ "$age" -ge 20 ] && [ "$age" -le 60 ]; then
   echo "You are classified as an Adult."
+else
+  echo "You are classified as Oldage."
 fi
