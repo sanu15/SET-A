@@ -9,7 +9,8 @@ echo "Choose operation:"
 echo "1) Addition"
 echo "2) Subtraction"
 echo "3) Multiplication"
-read -p "Enter choice (1/2/3): " choice
+echo "4) Division"
+read -p "Enter choice (1/2/3/4): " choice
 
 # Perform operation based on user input
 case $choice in
@@ -25,7 +26,15 @@ case $choice in
     result=$((num1 * num2))
     echo "Result of Multiplication: $result"
     ;;
+  4)
+    if [ "$num2" -eq 0 ]; then
+      echo "Error: Division by zero is not allowed."
+    else
+      result=$(echo "scale=2; $num1 / $num2" | bc)
+      echo "Result of Division: $result"
+    fi
+    ;;
   *)
-    echo "Invalid choice. Please enter 1, 2, or 3."
+    echo "Invalid choice. Please enter 1, 2, 3, or 4."
     ;;
 esac
